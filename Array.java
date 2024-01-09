@@ -84,10 +84,27 @@ public class Array {
         }
         return trappingwater;
     }
+// added a program of container with max water.....................................................................................
+    public static int maxwater(int height[]){
+        int n=height.length;
+        int i=0,j=n-1;
+        int maxwater=0;
+        while(i<j){
+            int water=Math.min(height[i],height[j])*(j-1);
+            maxwater=Math.max(water,maxwater);
+            if(height[i]<height[j]){
+                i++;
+            }
+            else{
+                j--;
+            }
+        }
+        return maxwater;
+    }
 
 
     public static void main(String[] args) {
-        int array[]={4,2,0,6,3,2,5};
-        System.out.println(Trappingwater(array));
+        int array[]={1,8,6,2,5,4,8,3,7};
+        System.out.println(maxwater(array));
     }
 }
